@@ -1,6 +1,6 @@
 # python3
 # Artūrs Brūvers 221RDB511 DS-14
-def read_input(filename):
+def read_input(filename=None):
     try:
         with open(f"./test/{filename}") as f:
             contents = f.readlines()
@@ -9,29 +9,26 @@ def read_input(filename):
         except:
             raise ValueError("Reading Error")
 
-            pattern = contents[0].strip()
-            text = contents[1].strip()
-            
-     return pattern, text
- 
-    def read_user_input():
+        pattern = contents[0].strip()
+        text = contents[1].strip()  
+    else:
         pattern = input().rstrip()
         text = input().rstrip()
     
     return pattern, text
 
-def read_input():
-    input_type = input().rstrip()
+#def read_input():
+   # input_type = input().rstrip()
     
-    if input_type == 'I':
-        return read_user_input()
-    elif input_type == 'F':
-        filename = "06"
-        if str(filename[-1]) == "a":
-            raise ValueError("Invalid filename")
-        return read_file_input(filename)
-    else:
-        raise ValueError("Invalid input type")
+  #  if input_type == 'I':
+      #  return read_user_input()
+   # elif input_type == 'F':
+       # filename = "06"
+       # if str(filename[-1]) == "a":
+           # raise ValueError("Invalid filename")
+       # return read_file_input(filename)
+  #  else:
+      #  raise ValueError("Invalid input type")
 
 def print_occurrences(output):
     print(' '.join(map(str, output)))
@@ -58,4 +55,18 @@ def get_occurrences(pattern, text):
 
 
 if __name__ == '__main__':
+    
+    if __name__ == '__main__':
+    input_type = input().rstrip()
+    
+    if input_type == 'I':
+        pattern, text = read_input()
+    elif input_type == 'F':
+        filename = "06"
+        if str(filename[-1]) == "a":
+            raise ValueError("Invalid filename")
+        pattern, text = read_input(filename)
+    else:
+        raise ValueError("Invalid input type")
+    
     print_occurrences(get_occurrences(*read_input()))
