@@ -12,12 +12,6 @@ def read_input(filename):
 
             pattern = contents[0].strip()
             text = contents[1].strip()
-            
-    return pattern, text
-
-def read_user_input():
-    pattern = input().rstrip()
-    text = input().rstrip()
     
     return pattern, text
 
