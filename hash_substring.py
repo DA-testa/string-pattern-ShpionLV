@@ -2,6 +2,7 @@
 # Artūrs Brūvers 221RDB511 DS-14
 
 def read_input(filename=none):
+    if filename is not None:
         try:
             with open(f"./test/{filename}") as f:
                 contents = f.readlines()
