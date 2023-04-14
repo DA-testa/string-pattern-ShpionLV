@@ -13,7 +13,7 @@ def read_input(filename):
             pattern = contents[0].strip()
             text = contents[1].strip()
             
-    return patterm, text
+    return pattern, text
 
 def read_user_input():
     pattern = input().rstrip()
