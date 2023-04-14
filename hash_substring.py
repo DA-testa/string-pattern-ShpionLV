@@ -43,7 +43,7 @@ def get_occurrences(pattern, text):
     return occurrences
 
 if __name__ == '__main__':
-     input_type = input().rstrip()
+    input_type = input().rstrip()
 
     if input_type == 'I':
         pattern, text = read_input()
@@ -54,4 +54,5 @@ if __name__ == '__main__':
         pattern, text = read_input(filename)
     else:
         raise ValueError("Invalid input type")
+
     print_occurrences(get_occurrences(pattern, text))
