@@ -1,62 +1,31 @@
 # python3
 
-import os
-
-
 def read_input():
-    input_type = input("Enter input type (I for user input, F for file input): ").strip().lower()
+    # this function needs to aquire input both from keyboard and file
+    # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
+    
+    
+    # after input type choice
+    # read two lines 
+    # first line is pattern 
+    # second line is text in which to look for pattern 
+    
+    # return both lines in one return
+    
+    # this is the sample return, notice the rstrip function
+    return (input().rstrip(), input().rstrip())
 
-    if input_type == 'i':
-        pattern = input("Enter pattern: ").strip()
-        text = input("Enter text: ").strip()
-        return pattern, text
-    elif input_type == 'f':
-        filename = input("Enter file name: ").strip()
-        if not filename.endswith(".txt"):
-            raise ValueError("Invalid file format")
-        if not os.path.isfile(filename):
-            raise ValueError("File not found")
-        with open(filename) as f:
-            pattern = f.readline().strip()
-            text = f.readline().strip()
-            return pattern, text
-    else:
-        raise ValueError("Invalid input type")
+def print_occurrences(output):
+    # this function should control output, it doesn't need any return
+    print(' '.join(map(str, output)))
 
+def get_occurrences(pattern, text):
+    # this function should find the occurances using Rabin Karp alghoritm 
 
-def print_occurrences(occurrences):
-    if not occurrences:
-        print("No occurrences found")
-    else:
-        print("Occurrences found at positions:", *occurrences)
+    # and return an iterable variable
+    return [0]
 
 
-def rabin_karp(pattern, text):
-    prime = 101
-    base = 256
-
-    pattern_hash = 0
-    text_hash = 0
-    for i in range(len(pattern)):
-        pattern_hash = (pattern_hash * base + ord(pattern[i])) % prime
-        text_hash = (text_hash * base + ord(text[i])) % prime
-
-    occurrences = []
-    for i in range(len(text) - len(pattern) + 1):
-        if pattern_hash == text_hash and pattern == text[i:i+len(pattern)]:
-            occurrences.append(i)
-        if i < len(text) - len(pattern):
-            text_hash = ((text_hash - ord(text[i]) * (base**(len(pattern)-1))) * base + ord(text[i+len(pattern)])) % prime
-
-    return occurrences
-
-
+# this part launches the functions
 if __name__ == '__main__':
-    try:
-        pattern, text = read_input()
-        occurrences = rabin_karp(pattern, text)
-        print_occurrences(occurrences)
-    except ValueError as e:
-        print("Error:", e)
-
-
+    print_occurrences(get_occurrences(*read_input()))
