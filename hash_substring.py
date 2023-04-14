@@ -1,6 +1,5 @@
 # python3
 # Artūrs Brūvers 221RDB511 DS-14
-
 def read_input(filename):
     try:
         with open(f"./test/{filename}") as f:
@@ -12,18 +11,20 @@ def read_input(filename):
 
             pattern = contents[0].strip()
             text = contents[1].strip()
+            
+     return pattern, text
  
-    else:
+    def read_user_input():
         pattern = input().rstrip()
         text = input().rstrip()
     
     return pattern, text
 
-def read_user_input():
+def read_input():
     input_type = input().rstrip()
     
     if input_type == 'I':
-        return read_input()
+        return read_user_input()
     elif input_type == 'F':
         filename = "06"
         if str(filename[-1]) == "a":
