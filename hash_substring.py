@@ -54,9 +54,8 @@ def get_occurrences(pattern, text):
     return occurrences
 
 
-if __name__ == '__main__':
-    
     if __name__ == '__main__':
+    
     input_type = input().rstrip()
     
     if input_type == 'I':
