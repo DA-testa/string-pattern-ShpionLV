@@ -1,7 +1,7 @@
 # python3
 # Artūrs Brūvers 221RDB511 DS-14
 
-def read_input(filename=None):
+def read_file_input(filename):
     if filename is not None:
         try:
             with open(f"./test/{filename}") as f:
