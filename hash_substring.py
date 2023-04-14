@@ -4,7 +4,7 @@
 def read_input(filename=None):
     if filename is not None:
         try:
-            with open(f"./test/{filename}") as f:
+            with open(f"./tests/{filename}") as f:
                 contents = f.readlines()
         except FileNotFoundError:
             raise ValueError("Missing File")
