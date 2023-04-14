@@ -1,7 +1,8 @@
 # python3
 # Artūrs Brūvers 221RDB511 DS-14
 def read_input(filename=None):
-    try:
+  if filename is not None:
+     try:
         with open(f"./test/{filename}") as f:
             contents = f.readlines()
         except FileNotFoundError:
@@ -54,8 +55,7 @@ def get_occurrences(pattern, text):
     return occurrences
 
 
-    if __name__ == '__main__':
-    
+ if __name__ == '__main__':
     input_type = input().rstrip()
     
     if input_type == 'I':
@@ -68,4 +68,4 @@ def get_occurrences(pattern, text):
     else:
         raise ValueError("Invalid input type")
     
-    print_occurrences(get_occurrences(*read_input()))
+    print_occurrences(get_occurrences(pattern, text))
