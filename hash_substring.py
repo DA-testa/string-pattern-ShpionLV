@@ -19,7 +19,7 @@ def read_input(filename):
     
     return pattern, text
 
-def read_input():
+def read_user_input():
     input_type = input().rstrip()
     
     if input_type == 'I':
