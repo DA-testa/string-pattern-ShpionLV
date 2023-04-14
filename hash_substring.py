@@ -15,6 +15,12 @@ def read_input(filename):
     
     return pattern, text
 
+    def read_input():
+        pattern = input().rstrip()
+        text = input().rstrip()
+    
+    return pattern, text
+
 def read_input():
     input_type = input().rstrip()
     
